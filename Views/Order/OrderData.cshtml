@@ -1,0 +1,40 @@
+﻿@model List<Otlob.Data.Order>
+<table class="table">
+    <thead>
+        <tr>
+            <th style="text-align:center">ID</th>
+            <th style="text-align:center">Date</th>
+            <th style="text-align:center">Price</th>
+            <th style="text-align:center">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td style="text-align:center">
+                <a href="#">
+                    @item.Id
+                </a>
+            </td>
+            <td style="text-align:center">
+                @item.DateTime
+            </td>
+
+            <td style="text-align:center">
+                <span class="price">
+                    @item.FinalTotal
+                </span>
+            </td>
+            <td style="text-align:center">
+                Pending
+            </td>
+            <td style="text-align:center">
+                <a href="/order/OrderDetails/@item.Id"class="btn btn-primary MyB" style="color: #fff; background-color: rgb(99, 42, 123) !important; border: none !important;">
+                    Details
+                </a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

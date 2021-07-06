@@ -1,0 +1,282 @@
+﻿@model DetailsViewModel
+@using (Html.BeginForm("Proceed", "Cart", FormMethod.Post))
+{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        .bo {
+            box-shadow: 0 0 5px 0 #aba9ab;
+            background-color: #f2f2f2;
+            margin-top: 15px;
+        }
+
+        body {
+            font-family: Arial;
+            font-size: 17px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .row {
+            display: -ms-flexbox; /* IE10 */
+            display: flex;
+            -ms-flex-wrap: wrap; /* IE10 */
+            flex-wrap: wrap;
+            margin: 0 -16px;
+        }
+
+        .col-25 {
+            -ms-flex: 25%; /* IE10 */
+            flex: 25%;
+        }
+
+        .col-50 {
+            -ms-flex: 50%; /* IE10 */
+            flex: 50%;
+        }
+
+        .col-75 {
+            -ms-flex: 75%; /* IE10 */
+            flex: 75%;
+        }
+
+        .col-25,
+        .col-50,
+        .col-75 {
+            padding: 0 16px;
+        }
+
+        .container {
+            padding: 5px 20px 15px 20px;
+            border-radius: 3px;
+        }
+
+        input[type=text] {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        label {
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .icon-container {
+            margin-bottom: 20px;
+            padding: 7px 0;
+            font-size: 24px;
+        }
+
+        .btn {
+            border: none;
+            width: 100%;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 17px;
+        }
+
+            .btn:hover {
+                background-color: #45a049;
+            }
+
+        a {
+            color: #2196F3;
+        }
+
+        hr {
+            border: 1px solid lightgrey;
+        }
+
+        span.price {
+            float: right;
+            color: grey;
+        }
+
+        /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+        @@media (max-width: 800px) {
+            .row {
+                flex-direction: column-reverse;
+            }
+
+            .col-25 {
+                margin-bottom: 20px;
+            }
+        }
+        
+    </style>
+    <div class="container bo">
+
+        <div class="row">
+            <div class="col-8">
+                <div class="container">
+                    <form action="/action_page.php">
+
+                        <div class="row">
+                            <div class="col-50">
+                                <h3>Billing Address</h3>
+
+                                <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+                                @Html.TextBoxFor(m => m.FullName, new { Class = "englishOnly", id = "fname", name = "firstname", placeholder = "John M. Doe" })
+                                <div style="color:red">
+                                    @Html.ValidationMessageFor(m => m.FullName)
+                                </div>
+
+                                <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                                @Html.TextBoxFor(m => m.Email, new { id = "email", name = "email", placeholder = "john@example.com" })
+                                <div style="color:red">
+                                    @Html.ValidationMessageFor(m => m.Email)
+                                </div>
+
+                                <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+                                @Html.TextBoxFor(m => m.Address, new { id = "adr", name = "address", placeholder = "542 W. 15th Street" })
+                                <div style="color:red">
+                                    @Html.ValidationMessageFor(m => m.Address)
+                                </div>
+
+                                <label for="city"><i class="fa fa-institution"></i> City</label>
+                                @Html.TextBoxFor(m => m.City, new { Class = "englishOnly", id = "city", name = "city", placeholder = "New York" })
+                                <div style="color:red">
+                                    @Html.ValidationMessageFor(m => m.City)
+                                </div>
+
+
+
+                                <div class="row">
+                                    <div class="col-50">
+                                        <label for="state">State</label>
+                                        @Html.TextBoxFor(m => m.State, new { Class = "englishOnly", id = "state", name = "state", placeholder = "NY" })
+                                        <div style="color:red">
+                                            @Html.ValidationMessageFor(m => m.State)
+                                        </div>
+
+                                    </div>
+                                    <div class="col-50">
+                                        <label for="zip">Zip</label>
+                                        @Html.TextBoxFor(m => m.ZIP, new { Class = "allowNumOnly", id = "zip", name = "zip", placeholder = "10001"})
+                                        <div style="color:red">
+                                            @Html.ValidationMessageFor(m => m.ZIP)
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-50">
+                                <h3>Payment</h3>
+                                <label for="fname">Accepted Cards</label>
+                                <div class="icon-container">
+                                    <i class="fa fa-cc-visa" style="color:navy;"></i>
+                                    <i class="fa fa-cc-amex" style="color:blue;"></i>
+                                    <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                                    <i class="fa fa-cc-discover" style="color:orange;"></i>
+                                </div>
+                                <label for="cname">Name on Card</label>
+                                @Html.TextBoxFor(m => m.NameOnCard, new { Class = "englishOnly", id = "cname", name = "cardname", placeholder = "John More Doe" })
+                                <div style="color:red">
+                                    @Html.ValidationMessageFor(m => m.NameOnCard)
+                                </div>
+
+
+
+
+                                <label for="ccnum">Credit card number</label>
+                                @Html.TextBoxFor(m => m.CreditCardNumber, new { Class = "allowNumOnly", id = "ccnum", name = "cardnumber", placeholder = "1111-2222-3333-4444" })
+                                <div style="color:red">
+                                    @Html.ValidationMessageFor(m => m.CreditCardNumber)
+                                </div>
+
+                                <label for="expmonth">Exp Month</label>
+                                @Html.TextBoxFor(m => m.ExpMonth, new { Class = "allowNumOnly", id = "expmonth", name = "expmonth", placeholder = "September" })
+                                <div style="color:red">
+                                    @Html.ValidationMessageFor(m => m.ExpMonth)
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-50">
+                                        <label for="expyear">Exp Year</label>
+                                        @Html.TextBoxFor(m => m.ExpYear, new {Class = "allowNumOnly", id = "expyear", name = "expyear", placeholder = "2018" })
+                                        <div style="color:red">
+                                            @Html.ValidationMessageFor(m => m.ExpYear)
+                                        </div>
+
+                                    </div>
+                                    <div class="col-50">
+                                        <label for="cvv">CVV</label>
+                                        @Html.TextBoxFor(m => m.CVV, new { Class = "allowNumOnly", id = "cvv", name = "cvv", placeholder = "352"})
+                                        <div style="color:red">
+                                            @Html.ValidationMessageFor(m => m.CVV)
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <label>
+                            <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+                        </label>
+                        <input type="submit" value="Continue to checkout" class="btn" style="background-color: #4CAF50; color: white; padding: 12px; margin: 10px 0;">
+                    </form>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="container">
+                    <h4>Cart </h4>
+                    <span class="" style="color:black"><i class="fa fa-shopping-cart"></i> <b>Number Of Items</b></span>
+
+
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Qty</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Total</th>
+                                <th scope="col"> </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.TotalViewModel.cartViewModels)
+                            {
+                                <tr>
+                                    <td>
+                                        <a href="#">@item.Name</a>
+                                    </td>
+                                    <td>
+                                        @item.Quantity
+                                    </td>
+
+                                    <td>
+                                        <span class="price">@item.Price @item.Currency</span>
+                                    </td>
+                                    <td>
+                                        @item.Total
+                                    </td>
+
+                                    <td>
+                                        <a href="/Cart/Delete/@item.Id">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <hr>
+                    <p>Sub-Total <span class="price" style="color:black"><b>@Model.TotalViewModel.FinalTotal L.E</b></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+
+}
+
+

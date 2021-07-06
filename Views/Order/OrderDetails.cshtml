@@ -1,0 +1,36 @@
+﻿@model List<WebApplication5.Data.OrderDetails>
+<table class="table">
+    <thead>
+        <tr>
+            <th style="text-align:center">Name</th>
+            <th style="text-align:center">image</th>
+            <th style="text-align:center">Description</th>
+            <th style="text-align:center">Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td style="text-align:center">
+                @item.food.Name
+            </td>
+            <td style="text-align:center">
+
+                <img src="@item.food.Image" />
+
+            </td>
+            <td style="text-align:center">
+                @item.food.Description
+            </td>
+
+            <td style="text-align:center">
+                <span class="price">
+                    @item.food.Price
+                </span>
+            </td>
+
+        </tr>
+        }
+    </tbody>
+</table>

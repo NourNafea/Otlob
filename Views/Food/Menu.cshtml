@@ -1,0 +1,195 @@
+﻿@model Otlob.Models.MenuViewModel
+
+<style>
+    .bo {
+        box-shadow: 0 0 5px 0 #aba9ab;
+    }
+
+    .mo {
+        margin-bottom: 25px;
+        margin-left: 3px;
+        margin-right: 3px;
+    }
+
+    .no {
+        border-style: groove;
+    }
+
+    .myImage {
+        width: 115px;
+        height: 115px;
+        margin: auto;
+        margin-top: 2px;
+    }
+
+    .MyBody {
+        text-align: center;
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .MyB {
+        background-color: rgb(99, 42, 123) !important;
+        border: none !important;
+        color:#fff;
+    }
+
+    .item-content {
+        height: 200px
+    }
+
+    .card-color {
+        color: #727272;
+    }
+
+    .Item-I {
+        padding-bottom: 5px;
+    }
+    .cart-style {
+        border: 1px solid #632a7b;
+        border-radius: 5px;
+        text-decoration:none;
+        color:#632a7b;
+
+    }
+        .cart-style:hover {
+            background-color: #632a7b;
+            color: white;
+            text-decoration: none;
+        }
+
+
+    .bstyle {
+        color: #632a7b;
+        border-color: #632a7b;
+    }
+
+        .bstyle:hover {
+            background-color: #632a7b;
+            color: white;
+            border-color: #632a7b;
+        }
+     @@media only screen and (max-width: 767px) {
+          .myImage{
+            width: 75px;
+            height: 75px;
+          }
+        .res-size {
+            font-size: 20px
+        }
+        .res-food{
+            justify-content:center;
+        }
+          }
+    @@media only screen and (max-width: 325px) {
+        .myImage {
+            width: 65px;
+            height: 65px;
+            padding-left: 0px !important;
+        }
+
+        .res-size {
+            font-size: 14px
+        }
+        .res-col{
+            padding-left: 5px;
+        }
+    }
+
+
+</style>
+
+<div class="container bo">
+    <div class="d-flex justify-content-between">
+        <div class="">
+            <div class="row">
+                <div class="col-4">
+                    <img src="@Model.Restaurant.Image" class="card-img-top myImage" />
+                </div>
+                <div class="col-6 ml-3 pt-3 res-col">
+                    
+                        <h3 class="res-size">@Model.Restaurant.Name</h3>                   
+                        <h6>@Model.Restaurant.Description</h6>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="pt-4">
+            <a href="/Cart/ShoppingCart" class="p-2 cart-style"><i class="fas fa-shopping-cart"></i> My cart</a>
+            
+
+        </div>
+    </div>
+
+</div>
+<div class="container bo">
+   
+        <div class="MyBackgroundClass row" style="width:auto">
+            <div class="col-md-6">
+                <span>Menu</span>
+            </div>
+            <div class="col-md-6" style="display: flex; justify-content: flex-end; padding-right:0px">
+                <form class="form-inline" asp-controller="Food" asp-action="searchRes">
+                    <input class="form-control mr-sm-2" type="search" id="searchInput2" name="SearchString" placeholder="Search" aria-label="Search" style="width:auto">
+                    <button class="btn btn-outline-success my-2 my-sm-0 bo-style bstyle" value="searchRes" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    <div class="row res-food">
+
+        @foreach (var item in Model.foods)
+        {
+            <div class="card MyBody" style="width: 13rem;">
+                <img src="@item.Image" class="card-img-top myImage" alt="...">
+                <div class="card-body MyBody">
+                    <div class="item-content">
+                        <h5 class="card-title card-color1">@item.Name</h5>
+                        <p class="card-text card-color">@item.Description</p>
+                    </div>
+                    <p class="card-text">@item.Price @item.Currency</p>
+                    <form action="/action_page.php" class="Item-I">
+                        <input type="number" onkeypress="return isNumberKey(event)"  id="@item.Id" min="1" value="1" style="width:100px"/>
+                    </form>
+                    <button id="@item.Id" type="button" onclick="UpdateCart(@item.Id)" class="btn btn-primary MyB" style="color: #fff; background-color: rgb(99, 42, 123) !important; border: none !important; ">Add To cart</button>
+               
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+<script>
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode;
+        if (charCode != 46 && charCode > 31
+            && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+    }
+    
+    function UpdateCart(id) {
+        var data = document.getElementById(id).value;
+
+        if (data == "") {
+            alert("Error, you have to add 1 item at least");
+        }
+        else {
+            $.ajax({ 
+                url: "/food/addtocart?Id=" + id + "&Quantity=" + data,
+                type: "get",
+                success: function (res) {
+                    alert("Cart Updated");
+                },
+                error: function (err) {
+                    window.location.replace("/Identity/Account/Login");
+
+                }
+            }
+            );
+        }
+
+    }
+</script>

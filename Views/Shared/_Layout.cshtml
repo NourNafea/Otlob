@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebApplication5</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="icon"
+          type="image/png"
+          href="~/Img/0t9Wq91x.jpg" />
+    @*<link rel="stylesheet" href="ot.css">*@
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="iconn" type="image/png" href="~/Img/0t9Wq91x.jpg" />
+    <script src="https://kit.fontawesome.com/2cba5660d5.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.0.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>
+    <link rel="Stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/themes/redmond/jquery-ui.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+
+    <style>
+        .navHover:hover {
+            color: #632a7b !important;
+        }
+    </style>
+
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3" style=" background-color: #FFD500!important; margin:0px !important;border:unset!important">
+            <div class="container">
+                <a class="navbar-brand" href="/home/index"><img src="~/Img/logo_new.ico" width="151"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <partial name="_LoginPartial" />
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link navHover" href="#">Offers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link navHover" href="#">Most Selling</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link navHover" href="/Restaurant/RN">All Restaurants</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link navHover" href="/order/orderdata">My Orders</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container" style="padding: unset; max-width:none">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div id="bottom">
+            <div class="container item-con py-4">
+                <div class="row">
+                    <div class="col">About Us</div>
+                    <div class="col">Feedback</div>
+                    <div class="col">Careers</div>
+                    <div class="col">Terms</div>
+                    <div class="col">FAQ</div>
+                    <div class="col">Privacy</div>
+                    <div class="col">Contact Us</div>
+                    <div class="col">Sitemap</div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row" style="padding:5px 0;">
+                    <div class="col-4" style="color: #fff; font-weight: 700;">Restaurant</div>
+                    <div class="col-4" style="color: #fff; font-weight: 700;">Popular Cuisines</div>
+                    <div class="col-4" style="color: #fff; font-weight: 700;">Popular Areas</div>
+                </div>
+
+                <div class="row" style="padding:5px 0;">
+                    <div class="col-4">Jo Sushi - Zamalek</div>
+                    <div class="col-4">Italian</div>
+                    <div class="col-4">Abu Rady</div>
+                </div>
+                <div class="row" style="padding:5px 0;">
+                    <div class="col-4">Taboon</div>
+                    <div class="col-4">Mexican</div>
+                    <div class="col-4">Al Warakah</div>
+                </div>
+                <div class="row" style="padding:5px 0;">
+                    <div class="col-4">NAWAB INDIAN CUISINE - Zamalek</div>
+                    <div class="col-4">Sandwiches</div>
+                    <div class="col-4">El Bahr St</div>
+                </div>
+                <div class="row" style="padding:5px 0;">
+                    <div class="col-4">Dawar Farah - Mohandiseen</div>
+                    <div class="col-4">Japanese</div>
+                    <div class="col-4">El Gaish</div>
+                </div>
+                <div class="row" style="padding:5px 0;">
+                    <div class="col-4">otlob Test Restaurant 2</div>
+                    <div class="col-4">Pizza</div>
+                    <div class="col-4">El Ragaby</div>
+                </div>
+
+                <div class="row" style="padding:5px 0;">
+                    <div class="col-4"><em>More Restaurants...</em></div>
+                    <div class="col-4"><em>More Cuisines...</em></div>
+                    <div class="col-4"><em>More Areas...</em></div>
+                </div>
+
+            </div>
+
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.0.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>
+    <link rel="Stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/themes/redmond/jquery-ui.css" />
+</body>
+</html>

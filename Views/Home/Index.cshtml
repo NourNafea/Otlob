@@ -1,0 +1,85 @@
+﻿<style>
+    .zs {
+        text-align: center;
+        background-image: url(https://ssmscdn.yp.ca/image/resize/48382dfb-9299-46aa-8dc0-99ba3bde6c4a/ypui-d-mp-pic-gal-lg/smart-three-restaurant-13.jpg);
+        background-size: cover;
+        min-height: 400px;
+        color: #ffff;
+        height: 700px;
+        border-radius: unset !important;
+    }
+
+    col-3 {
+        margin-left: auto;
+    }
+</style>
+<body>
+    <div class="jumbotron zs">
+        <div class="container">
+            <h1 class="display-5 mb-5">Order food online in Egypt</h1>
+
+            <div class="container">
+
+                <p class="text-left">Find the restaurants nearest to you</p>
+                <form asp-controller="Restaurant" asp-action="Search" style="width:100%">
+                    <div class="form-row">
+                        <div class="col-md-10 " style="width:100%">
+                            <input type="search" id="searchInput" class="home-search form-control" placeholder="Search for Resturant" name="SearchString">
+                        </div>
+
+                        <div class="col-md-2 search">
+                            <input type="submit" class="btn btn-success btn-lg search-button"  style=" display: block; width: 100%;padding: 4px 8px; background-color: rgb(99, 42, 123) !important; border:unset" value="Search" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <p class="lead"></p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row d-flex justify-content-between">
+            <div class="col-lg-3 col-md-3 col-sm-12 text-center my-3">
+                <img src="https://www.otlob.com/images/Otlob/icon_rest_new.svg" width="44px" height="44px" class="d-block m-auto">
+                <span class="pl ">Find a restaurant</span>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12 text-center my-3">
+                <img src="https://www.otlob.com/images/Otlob/icon_smiley_new.svg" width="44px" height="44px" class="d-block m-auto">
+                <span class="pl">Order your meal</span>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-12 text-center my-3">
+                <img src="https://www.otlob.com/images/Otlob/icon_meal_new.svg" width="44px" height="44px" class="d-block m-auto">
+                <span class="pl ">Enjoy your food</span>
+            </div>
+        </div>
+    </div>
+    <hr />
+
+    <div class="text-center ">
+        <h2 class="mt-3">Order food online</h2>
+        <p class="gray  pb-3">Endless selection of cuisines and restaurants</p>
+        <hr class="text-break mt-3 " width="100px">
+    </div>
+
+    <div class="container mt-5">
+
+        <div class="row">
+            <div class="col-12 col-md-6 align-content-center align-content-md-start">
+                <img src="https://www.otlob.com/images/Otlob/img_about.jpg">
+            </div>
+            <div class="col-12 col-md-6">
+
+                <p class="b">Who we are</p>
+                <p class="gray">Otlob is Egyptian foodies favorite food ordering app and website. We put thousands of top international and local restaurants into your hands. Find, sort, filter, rate, and order all with a couple easy taps. Otlob will take care of the rest.</p>
+
+                <p class="b">What we do</p>
+                <p class="gray">Otlob is Egypt's biggest food ordering services and operates in more than 25 cities. Customers can order from more than 2,000 restaurants with a couple taps, and Otlob will manage the rest.</p>
+                <p class="b">Start your experience</p>
+                <p class="gray"> Use our GPS technology to locate yourself, choose your favorite restaurant and meal, and checkout. Otlob allows you to pay however you prefer and save your delivery details for easy reordering.</p>
+            </div>
+
+        </div>
+
+    </div>
+</body>

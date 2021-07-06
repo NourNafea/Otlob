@@ -1,0 +1,99 @@
+﻿@model List<Otlob.Data.Restaurant> 
+<style>
+    .bo {
+        box-shadow: 0 0 5px 0 #aba9ab;
+
+    }
+    .mo{
+        margin-bottom:25px;
+        margin-left:3px;
+        margin-right:3px;
+    }
+    .no {
+        border-style: groove;
+    }
+    .myImage {
+        width: 115px;
+        height: 115px;
+        margin:auto;
+        margin-top:2px;
+
+    }
+    .MyBody{
+        text-align:center;
+        margin-left:5px;
+        margin-right:5px;
+        margin-top:5px;
+        margin-bottom:5px;
+    }
+    .MyB {
+        background-color: #632a7b;
+        border-color: #632a7b;
+    }
+    .item-content{
+        height:100px;
+    }
+    .card-color {
+        color: #727272;
+    }
+    .bo-style {
+        border-color: rgb(99, 42, 123)!important;
+        color: rgb(99, 42, 123);
+    }
+        .bo-style:hover {
+            background-color: rgb(99, 42, 123);
+            color: white;
+            text-decoration: none;
+        }
+    
+    
+</style>
+<div class="container bo">
+    <div class="row">
+        <span class="MyBackgroundClass"> All Restaurants</span>
+    </div>
+    <div class="row justify-content-center">
+
+        @foreach (var item in Model)
+        {
+            
+            <div class="card MyBody" style="width: 13rem;">
+                <img src="@item.Image"  class="card-img-top myImage" alt="...">
+                <div class="card-body MyBody" >
+                    <div class="item-content">
+                        <h5 class="card-title card-color1">@item.Name</h5>
+                        <p class="card-text card-color">@item.Description</p>
+                    </div>
+                    
+                    <a href="/Food/menu?id=@item.Id"  class="btn btn-primary MyB">Show Menu</a> @*redirect to specific Id*@
+                </div>
+            </div>
+           
+
+         
+        }
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
